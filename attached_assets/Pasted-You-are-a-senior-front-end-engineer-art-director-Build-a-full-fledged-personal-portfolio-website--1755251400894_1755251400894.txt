@@ -1,0 +1,81 @@
+You are a senior front-end engineer + art director. Build a full-fledged personal portfolio website for **Ansh Kumar** with a premium dark, gothic-horror aesthetic (think: inky blacks, deep crimson accents, subtle film grain, glassmorphism, and micro-animations inspired by psychological horror). The site must be fast, accessible (WCAG AA+), responsive, and production-ready.
+
+Tech stack:
+- Framework: Next.js 14 (App Router) or React + Vite (your choice, but prefer Next.js for SEO).
+- Styling: Tailwind CSS + CSS variables for theme tokens.
+- Animations: Framer Motion (parallax, reveal-on-scroll, subtle hover states).
+- 3D/FX: Optional lightweight Three.js or shader-based noise for a drifting fog backdrop; use <canvas> or CSS for particle “embers”.
+- Content: Typescript everywhere, ESLint + Prettier configured.
+
+Theme & Art Direction:
+- Palette: #0B0B0E (bg), #111218, #9B111E (blood-red accent), #C1C1C1 (muted gray), #7A0000 (deep red), off-white text (#EDEDED).
+- Typography: Headings—serif or gothic display (e.g., "Cormorant Garamond" or "UnifrakturCook"); body—clean grotesk (e.g., "Inter").
+- Visual motifs: Subtle fog/mist, grain/noise overlay, low-contrast vignette on hero, animated candle/glitch cursor on hover, neon-red underline effects.
+- Keep it elegant—not cheesy. Avoid jump-scare clichés. Micro-interactions only.
+
+Information Architecture (pages/sections):
+1) Home/Hero
+   - Name: **Ansh Kumar** (large gothic headline)
+   - Tagline: “AI/ML • Cybersecurity • Open Source • Cloud (Google Cloud KMS)”
+   - CTA buttons: View Work, Contact
+   - Ambient fog layer, very light parallax.
+2) About
+   - Short bio: AI/ML + cybersecurity enthusiast, hackathon participant (2+ events), open-source contributor.
+   - Skills grid: AI/ML, Python, React/Next, Google Cloud KMS, APIs, Security tooling.
+   - Download CV button (PDF).
+3) Projects
+   - Cards with cover images (dark frames), tech badges, problem→approach→impact, links to GitHub/live.
+   - Featured ideas: 
+     - Schronix – Smart Academic Scheduler & Attendance Planner (AI)
+     - AI Financial Advisor for Students (GPT-4o)
+     - Face detection/recognition (Haar/ArcFace)
+     - Mood detection AI
+     - Security experiments (non-malicious educational tools)
+4) Experience
+   - Internships (e.g., CODSOFT), roles, responsibilities, quantified outcomes.
+   - Hackathons: 2 events, role, submissions, results, learnings.
+5) Blog/Notes (MDX)
+   - Articles on AI/ML, cybersecurity, GCP KMS, agentic bots; dynamic routing, code blocks with copy buttons.
+6) Open Source
+   - GitHub activity feed (serverless API fetch), highlighted repos, contribution graph preview.
+7) Contact
+   - Form (name/email/message) with spam protection (honeypot) + email via serverless function.
+   - Social links: GitHub, LinkedIn, X.
+8) Resume
+   - Nicely formatted page + “Download PDF” (server-side render).
+
+Core Features:
+- SEO: metadata, OpenGraph images, sitemap.xml, robots.txt, canonical URLs, structured data (JSON-LD).
+- Performance: lazy-load images, next/image or responsive <img>, code-splitting, prefetch routes.
+- Accessibility: keyboard focus states, aria labels, sufficient contrast, reduced-motion support.
+- Theming utilities: prefers-reduced-motion, prefers-color-scheme, and a toggle for “Pure Black” vs “Textured Dark”.
+- Analytics: Privacy-friendly (e.g., Vercel Analytics or Plausible).
+- Error/empty states: graceful 404 with atmospheric “lost in the dark” illustration.
+- CMS (optional): MDX files by default; allow an easy swap to Contentlayer/Sanity if needed.
+- Testing: basic unit test for a component + Playwright smoke test for routes.
+
+Design Details to Implement:
+- Hero headline slowly reveals with mask + grain noise overlay.
+- Hover on project cards: slight tilt, red glow outline, glitch text flicker (extremely subtle).
+- Section dividers: thin red line with animated ember particles.
+- Cursor: default, but on interactive elements show faint red aura.
+- Background: low-opacity looping fog shader behind main content; ensure 60+ FPS on mid devices.
+
+Deliverables:
+- Complete Next.js (or React+Vite) project with:
+  - `README.md` (setup, scripts, deploy to Vercel/Netlify)
+  - `public/` favicon + social preview image (1200×630)
+  - `/content/` for blog MDX + sample posts
+  - Contact form serverless endpoint
+  - Example projects populated with placeholder images & copy for Ansh
+  - `eslint`, `prettier`, `tsconfig`, `tailwind.config.js`
+- Provide copy placeholders using Ansh’s name and interests.
+- Include image prompts for generating assets (e.g., “moody gothic desk, candlelight, red accent, film grain, 16:9”).
+- Make it production-ready, minimal dependencies, clean file tree.
+
+At the end, output:
+1) A complete file tree.
+2) Key code files inline (layout, theme, Hero, ProjectCard, Contact API).
+3) Tailwind config and global CSS (grain/fog utilities, typography).
+4) Instructions to run locally and deploy (Vercel/Netlify).
+5) Suggestions for future upgrades (lightweight CMS, newsletter, dark synth soundtrack toggle).
