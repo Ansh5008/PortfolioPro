@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(218, 23%, 6%);
+  --foreground: hsl(0, 0%, 92%);
+  --card: hsl(220, 13%, 10%);
+  --card-foreground: hsl(0, 0%, 85%);
+  --popover: hsl(218, 23%, 6%);
+  --popover-foreground: hsl(0, 0%, 92%);
+  --primary: hsl(348, 83%, 34%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(220, 13%, 10%);
+  --secondary-foreground: hsl(0, 0%, 92%);
+  --muted: hsl(217, 10%, 25%);
+  --muted-foreground: hsl(0, 0%, 53%);
+  --accent: hsl(348, 83%, 34%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(348, 83%, 34%, 0.3);
+  --input: hsl(220, 13%, 15%);
+  --ring: hsl(348, 83%, 34%);
+  
+  /* Gothic color palette */
+  --gothic-black: hsl(231, 23%, 4%);
+  --gothic-dark: hsl(224, 17%, 7%);
+  --blood-red: hsl(348, 83%, 34%);
+  --deep-red: hsl(0, 100%, 24%);
+  --gothic-gray: hsl(0, 0%, 76%);
+  --gothic-text: hsl(0, 0%, 93%);
+  --gothic-muted: hsl(0, 0%, 53%);
+  
+  /* Typography */
+  --font-gothic: 'Cormorant Garamond', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --radius: 1rem;
+}
+
+.dark {
+  --background: hsl(231, 23%, 4%);
+  --foreground: hsl(0, 0%, 93%);
+  --card: hsl(220, 13%, 10%);
+  --card-foreground: hsl(0, 0%, 85%);
+  --popover: hsl(231, 23%, 4%);
+  --popover-foreground: hsl(0, 0%, 93%);
+  --primary: hsl(348, 83%, 34%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(220, 13%, 10%);
+  --secondary-foreground: hsl(0, 0%, 92%);
+  --muted: hsl(217, 10%, 25%);
+  --muted-foreground: hsl(0, 0%, 53%);
+  --accent: hsl(348, 83%, 34%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(348, 83%, 34%, 0.3);
+  --input: hsl(220, 13%, 15%);
+  --ring: hsl(348, 83%, 34%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-gothic-black text-gothic-text font-sans antialiased overflow-x-hidden;
+    font-family: var(--font-sans);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--gothic-dark);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--blood-red);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--deep-red);
+  }
+}
+
+@layer components {
+  .font-gothic {
+    font-family: var(--font-gothic);
+  }
+  
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  
+  .glass-morphism {
+    @apply bg-card bg-opacity-70 backdrop-blur-md border border-border;
+  }
+  
+  .glow-text {
+    text-shadow: 0 0 10px rgba(155, 17, 30, 0.5);
+  }
+  
+  .nav-link {
+    @apply relative transition-all duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-5px] left-0 w-0 h-0.5 bg-gradient-to-r from-blood-red to-deep-red transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .cursor-glow {
+    @apply cursor-pointer transition-all duration-300;
+  }
+  
+  .cursor-glow:hover {
+    filter: drop-shadow(0 0 20px rgba(155, 17, 30, 0.4));
+  }
+  
+  .project-card {
+    @apply transition-all duration-300 transform-gpu;
+  }
+  
+  .project-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(10deg) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(155, 17, 30, 0.2);
+  }
+  
+  .glitch-text:hover {
+    animation: flicker 0.15s infinite linear alternate;
+  }
+  
+  .scroll-reveal {
+    @apply opacity-0 translate-y-12 transition-all duration-800 ease-out;
+  }
+  
+  .scroll-reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .grain-overlay {
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(155, 17, 30, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(155, 17, 30, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+    animation: grain 8s steps(10) infinite;
+  }
+  
+  .fog-layer {
+    background: linear-gradient(45deg, 
+      rgba(155, 17, 30, 0.02) 0%, 
+      transparent 25%, 
+      rgba(155, 17, 30, 0.02) 50%, 
+      transparent 75%, 
+      rgba(155, 17, 30, 0.02) 100%);
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .ember-particle {
+    @apply w-1 h-1 bg-blood-red rounded-full absolute;
+    animation: ember 4s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .bg-gothic-black { background-color: var(--gothic-black); }
+  .bg-gothic-dark { background-color: var(--gothic-dark); }
+  .bg-blood-red { background-color: var(--blood-red); }
+  .bg-deep-red { background-color: var(--deep-red); }
+  .bg-gothic-gray { background-color: var(--gothic-gray); }
+  
+  .text-gothic-black { color: var(--gothic-black); }
+  .text-gothic-dark { color: var(--gothic-dark); }
+  .text-blood-red { color: var(--blood-red); }
+  .text-deep-red { color: var(--deep-red); }
+  .text-gothic-gray { color: var(--gothic-gray); }
+  .text-gothic-text { color: var(--gothic-text); }
+  .text-gothic-muted { color: var(--gothic-muted); }
+  
+  .border-blood-red { border-color: var(--blood-red); }
+  .border-deep-red { border-color: var(--deep-red); }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(155, 17, 30, 0.3); }
+    100% { box-shadow: 0 0 40px rgba(155, 17, 30, 0.6); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    20% { transform: translate(-10%, 5%); }
+    30% { transform: translate(5%, -10%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-10%, 5%); }
+    60% { transform: translate(15%, 0%); }
+    70% { transform: translate(0%, 15%); }
+    80% { transform: translate(-15%, 10%); }
+    90% { transform: translate(10%, 5%); }
+  }
+  
+  @keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes ember {
+    0% { transform: translateY(0px) scale(1); opacity: 0.7; }
+    50% { transform: translateY(-100px) scale(1.2); opacity: 1; }
+    100% { transform: translateY(-200px) scale(0.8); opacity: 0; }
+  }
+  
+  @keyframes reveal {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes tilt {
+    0% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
+    100% { transform: perspective(1000px) rotateX(5deg) rotateY(10deg); }
+  }
+
+  @keyframes textReveal {
+    0% { 
+      transform: translateY(100%);
+      opacity: 0;
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    }
+    100% { 
+      transform: translateY(0);
+      opacity: 1;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  @keyframes morphBackground {
+    0% { 
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      background: linear-gradient(45deg, rgba(155, 17, 30, 0.1), rgba(122, 0, 0, 0.05));
+    }
+    25% { 
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+      background: linear-gradient(135deg, rgba(155, 17, 30, 0.15), rgba(122, 0, 0, 0.08));
+    }
+    50% { 
+      border-radius: 50% 40% 50% 60% / 45% 70% 40% 50%;
+      background: linear-gradient(225deg, rgba(155, 17, 30, 0.08), rgba(122, 0, 0, 0.12));
+    }
+    75% { 
+      border-radius: 70% 30% 40% 50% / 60% 40% 60% 50%;
+      background: linear-gradient(315deg, rgba(155, 17, 30, 0.12), rgba(122, 0, 0, 0.06));
+    }
+    100% { 
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      background: linear-gradient(45deg, rgba(155, 17, 30, 0.1), rgba(122, 0, 0, 0.05));
+    }
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.05) rotate(2deg); }
+  }
+
+  @keyframes liquidMotion {
+    0% { 
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      transform: rotate(0deg) scale(1);
+    }
+    25% { 
+      border-radius: 58% 42% 75% 25% / 76% 24% 76% 24%;
+      transform: rotate(90deg) scale(1.1);
+    }
+    50% { 
+      border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+      transform: rotate(180deg) scale(0.9);
+    }
+    75% { 
+      border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+      transform: rotate(270deg) scale(1.05);
+    }
+    100% { 
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  @keyframes glowPulse {
+    0% { 
+      box-shadow: 
+        0 0 20px rgba(155, 17, 30, 0.3),
+        0 0 40px rgba(155, 17, 30, 0.2),
+        inset 0 0 20px rgba(155, 17, 30, 0.1);
+    }
+    50% { 
+      box-shadow: 
+        0 0 40px rgba(155, 17, 30, 0.8),
+        0 0 80px rgba(155, 17, 30, 0.4),
+        inset 0 0 40px rgba(155, 17, 30, 0.2);
+    }
+    100% { 
+      box-shadow: 
+        0 0 20px rgba(155, 17, 30, 0.3),
+        0 0 40px rgba(155, 17, 30, 0.2),
+        inset 0 0 20px rgba(155, 17, 30, 0.1);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% { 
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% { 
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% { 
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% { 
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes rotateIn {
+    0% { 
+      transform: rotate(-360deg) scale(0);
+      opacity: 0;
+    }
+    100% { 
+      transform: rotate(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounceIn {
+    0% { 
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% { 
+      transform: scale(1.05);
+    }
+    70% { 
+      transform: scale(0.9);
+    }
+    100% { 
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes typewriter {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+
+  @keyframes blinkCaret {
+    0%, 50% { border-color: rgba(155, 17, 30, 1); }
+    51%, 100% { border-color: transparent; }
+  }
+  
+  .animate-fade-in { animation: fadeIn 0.6s ease-out; }
+  .animate-slide-up { animation: slideUp 0.8s ease-out; }
+  .animate-glow { animation: glow 2s ease-in-out infinite alternate; }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-grain { animation: grain 8s steps(10) infinite; }
+  .animate-flicker { animation: flicker 0.15s infinite linear alternate; }
+  .animate-ember { animation: ember 4s ease-in-out infinite; }
+  .animate-reveal { animation: reveal 1.2s ease-out forwards; }
+  .animate-tilt { animation: tilt 0.3s ease-out forwards; }
+  .animate-text-reveal { animation: textReveal 1.5s ease-out forwards; }
+  .animate-morph-bg { animation: morphBackground 20s ease-in-out infinite; }
+  .animate-breathe { animation: breathe 4s ease-in-out infinite; }
+  .animate-liquid { animation: liquidMotion 15s ease-in-out infinite; }
+  .animate-glow-pulse { animation: glowPulse 3s ease-in-out infinite; }
+  .animate-slide-left { animation: slideInFromLeft 1s ease-out; }
+  .animate-slide-right { animation: slideInFromRight 1s ease-out; }
+  .animate-rotate-in { animation: rotateIn 0.8s ease-out; }
+  .animate-bounce-in { animation: bounceIn 0.6s ease-out; }
+  .animate-typewriter { animation: typewriter 3s steps(30) 1s both; }
+  .animate-blink { animation: blinkCaret 1s step-end infinite; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scroll-reveal {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .grain-overlay, .fog-layer, .ember-particle {
+    animation: none !important;
+  }
+}
