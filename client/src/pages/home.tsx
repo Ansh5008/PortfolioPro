@@ -13,6 +13,8 @@ import FogLayer from "@/components/effects/fog-layer";
 import MorphingBackground from "@/components/effects/morphing-background";
 import ScrollProgress from "@/components/effects/scroll-progress";
 import CursorTrail from "@/components/effects/cursor-trail";
+import { ScrollTriggerWrapper } from "@/components/effects/scroll-trigger";
+import { Parallax } from "@/components/effects/parallax";
 
 
 export default function Home() {
@@ -41,12 +43,34 @@ export default function Home() {
       
       <main className="relative z-10">
         <Hero />
-        <About />
-        <Projects />
-        <Experience />
-        <Blog />
-        <OpenSource />
-        <Contact />
+        
+        <ScrollTriggerWrapper animation="fadeIn" duration={1.2}>
+          <About />
+        </ScrollTriggerWrapper>
+        
+        <Parallax speed={0.3} direction="up">
+          <ScrollTriggerWrapper animation="slideUp" duration={1} delay={0.2}>
+            <Projects />
+          </ScrollTriggerWrapper>
+        </Parallax>
+        
+        <ScrollTriggerWrapper animation="slideLeft" duration={1} delay={0.1}>
+          <Experience />
+        </ScrollTriggerWrapper>
+        
+        <Parallax speed={0.2} direction="down">
+          <ScrollTriggerWrapper animation="fadeIn" duration={1.5}>
+            <Blog />
+          </ScrollTriggerWrapper>
+        </Parallax>
+        
+        <ScrollTriggerWrapper animation="slideRight" duration={1} delay={0.3}>
+          <OpenSource />
+        </ScrollTriggerWrapper>
+        
+        <ScrollTriggerWrapper animation="scale" duration={1.2}>
+          <Contact />
+        </ScrollTriggerWrapper>
       </main>
       
       <Footer />

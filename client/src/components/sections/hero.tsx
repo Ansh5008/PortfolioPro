@@ -7,6 +7,8 @@ import MagneticCursor from "@/components/effects/magnetic-cursor";
 import TextReveal from "@/components/effects/text-reveal";
 import MorphingText from "@/components/effects/morphing-text";
 import FloatingElements from "@/components/effects/floating-elements";
+import { scrollTo } from "@/hooks/use-lenis";
+import { ParallaxText } from "@/components/effects/parallax";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,10 +21,7 @@ export default function Hero() {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollTo(sectionId, { duration: 1.5, easing: (t: number) => 1 - Math.pow(1 - t, 3) });
   };
 
   return (

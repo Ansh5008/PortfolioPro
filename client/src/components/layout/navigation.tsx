@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { scrollTo } from "@/hooks/use-lenis";
 
 const navigationItems = [
   { href: "#home", label: "Home" },
@@ -25,10 +26,7 @@ export default function Navigation() {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    scrollTo(href, { duration: 1.5, easing: (t: number) => 1 - Math.pow(1 - t, 3) });
     setIsOpen(false);
   };
 
