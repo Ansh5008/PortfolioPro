@@ -1,0 +1,104 @@
+/* Lenis Smooth Scroll - Essential CSS for proper functioning */
+
+/* Prevent default scroll behavior and set up smooth scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+/* Ensure lenis has full control over scrolling */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Remove default scroll behavior when lenis is active */
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Custom scrollbar for webkit browsers */
+html.lenis::-webkit-scrollbar {
+  width: 8px;
+}
+
+html.lenis::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+html.lenis::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ef4444, #dc2626);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+html.lenis::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #dc2626, #b91c1c);
+}
+
+/* Firefox scrollbar styling */
+html.lenis {
+  scrollbar-width: thin;
+  scrollbar-color: #ef4444 rgba(255, 255, 255, 0.1);
+}
+
+/* Optimize rendering for smooth scrolling */
+.lenis-content {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Prevent layout shifts during scroll */
+.scroll-container {
+  position: relative;
+  will-change: transform;
+}
+
+/* Smooth scroll anchor offsetting */
+.scroll-anchor {
+  scroll-margin-top: 80px; /* Adjust for fixed header */
+}
+
+/* Performance optimizations */
+.lenis * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for better performance */
+.parallax-element,
+.scroll-triggered,
+.smooth-transform {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Disable scroll snap when lenis is active */
+html.lenis {
+  scroll-snap-type: none !important;
+}
+
+html.lenis * {
+  scroll-snap-type: none !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  html.lenis {
+    /* Reduce lerp on mobile for better performance */
+    --lenis-lerp: 0.15;
+  }
+}
+
+/* Accessibility - respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html.lenis {
+    scroll-behavior: auto !important;
+  }
+  
+  .parallax-element,
+  .scroll-triggered {
+    will-change: auto;
+    transform: none !important;
+  }
+}
