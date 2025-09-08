@@ -30,31 +30,15 @@ export default function Home() {
       <GamingHeader />
       <GamingSidebar />
       
-      <main className="relative z-10 pl-64">
+      <main className="relative z-10 lg:pl-64">
         <GamingHero />
         
         <ScrollTriggerWrapper animation="fadeIn" duration={1.2}>
-          <About />
+          <GamingProjects />
         </ScrollTriggerWrapper>
-        
-        <Parallax speed={0.3} direction="up">
-          <ScrollTriggerWrapper animation="slideUp" duration={1} delay={0.2}>
-            <GamingProjects />
-          </ScrollTriggerWrapper>
-        </Parallax>
         
         <ScrollTriggerWrapper animation="slideLeft" duration={1} delay={0.1}>
           <GamingExperience />
-        </ScrollTriggerWrapper>
-        
-        <Parallax speed={0.2} direction="down">
-          <ScrollTriggerWrapper animation="fadeIn" duration={1.5}>
-            <Blog />
-          </ScrollTriggerWrapper>
-        </Parallax>
-        
-        <ScrollTriggerWrapper animation="slideRight" duration={1} delay={0.3}>
-          <OpenSource />
         </ScrollTriggerWrapper>
         
         <ScrollTriggerWrapper animation="scale" duration={1.2}>

@@ -39,7 +39,7 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
 
   return (
     <motion.div
-      className={`fixed left-0 top-0 h-screen bg-black/90 backdrop-blur-md border-r border-red-600/30 z-40 ${className}`}
+      className={`fixed left-0 top-0 h-screen bg-black/90 backdrop-blur-md border-r border-red-600/30 z-40 lg:translate-x-0 ${isCollapsed ? '-translate-x-56' : 'translate-x-0'} ${className}`}
       initial={{ x: -300 }}
       animate={{ x: isCollapsed ? -220 : 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
