@@ -36,19 +36,19 @@ export default function GamingContact() {
             >
               OPEN FOR HIRE
             </motion.h2>
-            <div className="text-red-400 text-sm font-gaming mb-8">
+            <div className="text-violet-primary text-sm font-gaming mb-8">
               I WOULD LOVE TO HEAR ABOUT YOUR PROJECTS!
             </div>
-            <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-violet-primary mx-auto mb-8"></div>
           </div>
         </ScrollTriggerWrapper>
 
         <ScrollTriggerWrapper animation="fadeIn" duration={1.2}>
-          <div className="bg-red-900/10 border border-red-600/30 rounded-lg p-8">
+          <div className="bg-violet-dark/10 border border-violet-primary/30 rounded-lg p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name Field */}
               <div>
-                <label className="block text-red-400 font-gaming font-bold text-sm mb-3">
+                <label className="block text-violet-primary font-gaming font-bold text-sm mb-3">
                   HOW SHOULD I CALL YOU?
                 </label>
                 <motion.input
@@ -56,7 +56,7 @@ export default function GamingContact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-black border border-red-600/30 rounded px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors font-gaming"
+                  className="w-full bg-black border border-violet-primary/30 rounded px-4 py-3 text-white focus:border-violet-primary focus:outline-none transition-colors font-gaming"
                   placeholder="YOUR NAME"
                   whileFocus={{ scale: 1.01 }}
                   required
@@ -65,7 +65,7 @@ export default function GamingContact() {
 
               {/* Email Field */}
               <div>
-                <label className="block text-red-400 font-gaming font-bold text-sm mb-3">
+                <label className="block text-violet-primary font-gaming font-bold text-sm mb-3">
                   REACHING FROM
                 </label>
                 <motion.input
@@ -73,7 +73,7 @@ export default function GamingContact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-black border border-red-600/30 rounded px-4 py-3 text-white focus:border-red-600 focus:outline-none transition-colors font-gaming"
+                  className="w-full bg-black border border-violet-primary/30 rounded px-4 py-3 text-white focus:border-violet-primary focus:outline-none transition-colors font-gaming"
                   placeholder="your.name@email.com"
                   whileFocus={{ scale: 1.01 }}
                   required
@@ -82,7 +82,7 @@ export default function GamingContact() {
 
               {/* Message Field */}
               <div>
-                <label className="block text-red-400 font-gaming font-bold text-sm mb-3">
+                <label className="block text-violet-primary font-gaming font-bold text-sm mb-3">
                   TRANSMITTED DATA
                 </label>
                 <motion.textarea

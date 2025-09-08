@@ -44,34 +44,34 @@ export default function GamingHeader({ className = "" }: GamingHeaderProps) {
   return (
     <motion.header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-red-600/30 ${className}`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-violet-primary/30 ${className}`}
       style={{ opacity: headerOpacity }}
     >
       <div className="flex items-center justify-between px-6 py-3 font-gaming text-sm">
         {/* Left Section - Stats */}
         <div className="flex items-center space-x-8">
-          <div className="text-red-400">
+          <div className="text-violet-primary">
             {stats.credits} <span className="text-white">SERVICE TIME: {stats.serviceTime}</span>
           </div>
-          <div className="text-red-400">
+          <div className="text-violet-primary">
             <span className="text-gray-400">CURRENT TIME:</span> <span className="text-white">{stats.currentTime}</span>
           </div>
         </div>
 
         {/* Right Section - Quest Info */}
         <div className="flex items-center space-x-6">
-          <div className="bg-red-600/20 border border-red-600/50 px-4 py-2 rounded">
+          <div className="bg-violet-primary/20 border border-violet-primary/50 px-4 py-2 rounded">
             <div className="flex items-center space-x-4">
               <div>
-                <div className="text-red-400 text-xs font-bold">{questInfo.title}</div>
+                <div className="text-violet-primary text-xs font-bold">{questInfo.title}</div>
                 <div className="text-white text-xs">{questInfo.status}</div>
               </div>
-              <div className="border-l border-red-600/30 pl-4">
-                <div className="text-red-400 text-xs">{questInfo.name}</div>
+              <div className="border-l border-violet-primary/30 pl-4">
+                <div className="text-violet-primary text-xs">{questInfo.name}</div>
                 <div className="text-white text-xs">{questInfo.detail}</div>
               </div>
-              <div className="border-l border-red-600/30 pl-4">
-                <div className="text-red-400 text-xs">{questInfo.mission}</div>
+              <div className="border-l border-violet-primary/30 pl-4">
+                <div className="text-violet-primary text-xs">{questInfo.mission}</div>
                 <div className="text-white text-xs max-w-32 truncate">{questInfo.description}</div>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function GamingHeader({ className = "" }: GamingHeaderProps) {
           {/* Action buttons */}
           <div className="flex space-x-2">
             <motion.button
-              className="bg-red-600/20 border border-red-600/50 px-3 py-1 text-xs text-red-400 hover:bg-red-600/30 transition-colors rounded"
+              className="bg-violet-primary/20 border border-violet-primary/50 px-3 py-1 text-xs text-violet-primary hover:bg-violet-primary/30 transition-colors rounded"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -94,7 +94,7 @@ export default function GamingHeader({ className = "" }: GamingHeaderProps) {
               MUSIC
             </motion.button>
             <motion.button
-              className="bg-red-600/20 border border-red-600/50 px-3 py-1 text-xs text-red-400 hover:bg-red-600/30 transition-colors rounded"
+              className="bg-violet-primary/20 border border-violet-primary/50 px-3 py-1 text-xs text-violet-primary hover:bg-violet-primary/30 transition-colors rounded"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -105,9 +105,9 @@ export default function GamingHeader({ className = "" }: GamingHeaderProps) {
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-900/30">
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-violet-dark/30">
         <motion.div
-          className="h-full bg-gradient-to-r from-red-600 to-red-400"
+          className="h-full bg-gradient-to-r from-violet-primary to-violet-secondary"
           style={{ width: `${scrollProgress}%` }}
           initial={{ width: 0 }}
           transition={{ type: "spring", stiffness: 100, damping: 15 }}

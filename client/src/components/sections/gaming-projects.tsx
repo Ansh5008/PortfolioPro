@@ -64,13 +64,13 @@ export default function GamingProjects() {
             >
               CREATIONS
             </motion.h2>
-            <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-violet-primary mx-auto mb-8"></div>
           </div>
         </ScrollTriggerWrapper>
 
         {/* View Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="bg-red-600/10 border border-red-600/30 rounded-lg p-1">
+          <div className="bg-violet-primary/10 border border-violet-primary/30 rounded-lg p-1">
             {["grid", "expanded"].map((mode) => (
               <button
                 key={mode}
