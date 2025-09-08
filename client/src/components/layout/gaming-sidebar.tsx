@@ -72,13 +72,13 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
           </div>
           
           <div className="space-y-1 text-xs">
-            <div className="text-red-400 font-bold">NAME</div>
+            <div className="text-violet-primary font-bold">NAME</div>
             <div className="text-white font-bold text-sm">{userInfo.name}</div>
             
-            <div className="text-red-400 font-bold mt-3">OCCUPATION</div>
+            <div className="text-violet-primary font-bold mt-3">OCCUPATION</div>
             <div className="text-white text-sm">UI UX DESIGNER</div>
             
-            <div className="text-red-400 font-bold mt-3">CORPORATION</div>
+            <div className="text-violet-primary font-bold mt-3">CORPORATION</div>
             <div className="text-white text-sm">FREELANCING</div>
           </div>
         </div>
@@ -88,7 +88,7 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              className={`text-xs ${stat.active ? 'text-red-400' : 'text-gray-400'}`}
+              className={`text-xs ${stat.active ? 'text-violet-primary' : 'text-gray-400'}`}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}

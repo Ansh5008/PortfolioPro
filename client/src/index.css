@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import './styles/lenis.css';
 
 @tailwind base;
@@ -43,8 +43,8 @@
   --border-red: hsl(270, 100%, 60%, 0.3);
   
   /* Typography */
-  --font-gothic: 'Orbitron', monospace;
-  --font-gaming: 'Rajdhani', sans-serif;
+  --font-gothic: 'Orbitron', 'Space Grotesk', monospace;
+  --font-gaming: 'Rajdhani', 'Inter', sans-serif;
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   

@@ -99,16 +99,16 @@ export default function GamingExperience() {
             >
               {activeTab === "skills" ? "CRAFTSMANSHIPS" : activeTab === "progress" ? "PROGRESS" : "DATA LOG DUMP INITIALIZED"}
             </motion.h2>
-            <div className="text-red-400 text-sm font-gaming mb-8">
+            <div className="text-violet-primary text-sm font-gaming mb-8">
               {activeTab === "skills" ? "EXPERIENCE IN EACH SKILL" : activeTab === "progress" ? "EXPERIENCE IN EACH SKILL" : ""}
             </div>
-            <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-violet-primary mx-auto mb-8"></div>
           </div>
         </ScrollTriggerWrapper>
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-red-600/10 border border-red-600/30 rounded-lg p-1">
+          <div className="bg-violet-primary/10 border border-violet-primary/30 rounded-lg p-1">
             {[
               { key: "skills", label: "CRAFTSMANSHIPS", active: activeTab === "skills" },
               { key: "progress", label: "PROGRESS", active: activeTab === "progress" }, 
@@ -119,8 +119,8 @@ export default function GamingExperience() {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`px-6 py-3 text-sm font-gaming font-bold transition-all ${
                   tab.active
-                    ? "bg-red-600 text-white"
-                    : "text-red-400 hover:text-white hover:bg-red-600/20"
+                    ? "bg-violet-primary text-white"
+                    : "text-violet-primary hover:text-white hover:bg-violet-primary/20"
                 }`}
               >
                 {tab.label}
@@ -138,7 +138,7 @@ export default function GamingExperience() {
                 {skills.map((skill, index) => (
                   <motion.div
                     key={skill.name}
-                    className="bg-red-900/10 border border-red-600/30 rounded-lg p-6 hover:bg-red-900/20 transition-all"
+                    className="bg-violet-dark/10 border border-violet-primary/30 rounded-lg p-6 hover:bg-violet-dark/20 transition-all"
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}

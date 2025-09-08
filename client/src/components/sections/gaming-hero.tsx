@@ -95,11 +95,23 @@ export default function GamingHero() {
           <motion.img
             src={soldierImage}
             alt="Cyberpunk Soldier"
-            className="h-full w-auto object-cover object-center opacity-60"
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 0.6, x: 0 }}
+            className="h-full w-auto object-cover object-center opacity-70 cursor-pointer"
+            initial={{ opacity: 0, x: 100, rotateY: 0, rotateX: 0 }}
+            animate={{ opacity: 0.7, x: 0 }}
+            whileHover={{ 
+              opacity: 0.9,
+              scale: 1.05,
+              rotateY: 15,
+              rotateX: 5,
+              z: 50,
+              transition: { duration: 0.3 }
+            }}
             transition={{ duration: 1.5, delay: 0.5 }}
-            style={{ y: textY }}
+            style={{ 
+              y: textY,
+              transformStyle: "preserve-3d",
+              transformOrigin: "center center"
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-gothic-black"></div>
         </div>
@@ -127,7 +139,7 @@ export default function GamingHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            GAME UI
+            ANSH KUMAR
           </motion.h1>
 
           <motion.h2
