@@ -39,16 +39,16 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
 
   return (
     <motion.div
-      className={`fixed left-0 top-0 h-screen bg-black/90 backdrop-blur-md border-r border-red-600/30 z-40 lg:translate-x-0 ${isCollapsed ? '-translate-x-56' : 'translate-x-0'} ${className}`}
+      className={`fixed left-0 top-0 h-screen bg-black/90 backdrop-blur-md border-r border-violet-primary/30 z-40 lg:translate-x-0 ${isCollapsed ? '-translate-x-56' : 'translate-x-0'} ${className}`}
       initial={{ x: -300 }}
       animate={{ x: isCollapsed ? -220 : 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
-      <div className="w-64 h-full p-6 text-red-400 font-gaming">
+      <div className="w-64 h-full p-6 text-violet-primary font-gaming">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center">
+            <div className="w-8 h-8 bg-violet-primary rounded flex items-center justify-center">
               <span className="text-white text-sm font-bold">{userInfo.level}</span>
             </div>
             <span className="text-green-400 text-sm font-bold">LEVEL</span>
@@ -64,10 +64,10 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
         </div>
 
         {/* Profile Section */}
-        <div className="border border-red-600/30 rounded-lg p-4 mb-6">
-          <div className="w-16 h-16 bg-gradient-to-r from-red-600 to-red-800 rounded-lg mb-4 flex items-center justify-center">
+        <div className="border border-violet-primary/30 rounded-lg p-4 mb-6">
+          <div className="w-16 h-16 bg-gradient-to-r from-violet-primary to-violet-secondary rounded-lg mb-4 flex items-center justify-center">
             <div className="w-12 h-12 bg-black/50 rounded flex items-center justify-center">
-              <span className="text-red-400 text-xs">👤</span>
+              <span className="text-violet-primary text-xs">👤</span>
             </div>
           </div>
           
@@ -93,9 +93,9 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="text-red-400 font-bold">{stat.label}</div>
-              <div className={`${stat.active ? 'text-white' : 'text-gray-300'} ${stat.link ? 'border-b border-red-600/50 cursor-pointer hover:text-red-400' : ''}`}>
-                {stat.value} {stat.link && <span className="text-red-600">›</span>}
+              <div className="text-violet-primary font-bold">{stat.label}</div>
+              <div className={`${stat.active ? 'text-white' : 'text-gray-300'} ${stat.link ? 'border-b border-violet-primary/50 cursor-pointer hover:text-violet-primary' : ''}`}>
+                {stat.value} {stat.link && <span className="text-violet-primary">›</span>}
               </div>
             </motion.div>
           ))}
@@ -103,23 +103,23 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
 
         {/* Service Status */}
         <div className="text-xs mb-8">
-          <div className="text-red-400 font-bold">SOCIAL</div>
-          <div className="text-white border-b border-red-600/50 cursor-pointer hover:text-red-400 pb-1">
-            OPEN CONNECTION <span className="text-red-600">›</span>
+          <div className="text-violet-primary font-bold">SOCIAL</div>
+          <div className="text-white border-b border-violet-primary/50 cursor-pointer hover:text-violet-primary pb-1">
+            OPEN CONNECTION <span className="text-violet-primary">›</span>
           </div>
         </div>
 
         {/* Navigation */}
         <div className="absolute bottom-6 left-6 right-6">
-          <div className="flex justify-between border-t border-red-600/30 pt-4">
+          <div className="flex justify-between border-t border-violet-primary/30 pt-4">
             {navigationItems.map((item, index) => (
               <motion.button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 className={`text-xs font-bold px-2 py-1 transition-all duration-300 ${
                   item.highlight
-                    ? 'bg-red-600 text-white border border-red-600'
-                    : 'text-red-400 hover:text-white hover:bg-red-600/20 border border-red-600/30'
+                    ? 'bg-violet-primary text-white border border-violet-primary'
+                    : 'text-violet-primary hover:text-white hover:bg-violet-primary/20 border border-violet-primary/30'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -136,7 +136,7 @@ export default function GamingSidebar({ className = "" }: SidebarProps) {
 
       {/* Collapse Toggle */}
       <motion.button
-        className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-12 bg-red-600 rounded-r-lg flex items-center justify-center text-white hover:bg-red-700 transition-colors"
+        className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-12 bg-violet-primary rounded-r-lg flex items-center justify-center text-white hover:bg-violet-secondary transition-colors"
         onClick={() => setIsCollapsed(!isCollapsed)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

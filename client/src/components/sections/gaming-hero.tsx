@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import { scrollTo } from "@/hooks/use-lenis";
 import { ScrollTriggerWrapper } from "@/components/effects/scroll-trigger";
 import { Parallax } from "@/components/effects/parallax";
+import soldierImage from '@assets/generated_images/Cyberpunk_tactical_soldier_character_91f7df21.png';
 
 export default function GamingHero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -33,7 +34,7 @@ export default function GamingHero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-red-900/20 overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br from-gothic-black via-violet-dark to-violet-primary/10 overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0">
@@ -42,7 +43,7 @@ export default function GamingHero() {
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ef4444" strokeWidth="1"/>
+                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#9333ea" strokeWidth="1"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
@@ -54,7 +55,7 @@ export default function GamingHero() {
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-red-500 rounded-full"
+              className="absolute w-1 h-1 bg-violet-primary rounded-full"
               animate={{
                 x: [0, window.innerWidth || 1920],
                 y: [Math.random() * (window.innerHeight || 1080), Math.random() * (window.innerHeight || 1080)],
@@ -75,7 +76,7 @@ export default function GamingHero() {
 
         {/* Cursor follower */}
         <motion.div
-          className="absolute w-96 h-96 bg-red-600/5 rounded-full blur-3xl pointer-events-none"
+          className="absolute w-96 h-96 bg-violet-primary/5 rounded-full blur-3xl pointer-events-none"
           animate={{
             x: mousePosition.x - 192,
             y: mousePosition.y - 192,
@@ -88,9 +89,25 @@ export default function GamingHero() {
         />
       </div>
 
+      {/* Character Image */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 z-5">
+        <div className="relative h-full flex items-center justify-center">
+          <motion.img
+            src={soldierImage}
+            alt="Cyberpunk Soldier"
+            className="h-full w-auto object-cover object-center opacity-60"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 0.6, x: 0 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            style={{ y: textY }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-gothic-black"></div>
+        </div>
+      </div>
+
       {/* Main content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-6">
-        <div className="text-center max-w-6xl mx-auto">
+      <div className="relative z-10 flex items-center justify-start min-h-screen px-6">
+        <div className="text-left max-w-4xl">
           {/* Badge */}
           <motion.div
             className="inline-block mb-6"
@@ -98,14 +115,14 @@ export default function GamingHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-red-600/10 border border-red-600/30 rounded-full px-6 py-2 text-red-400 font-gaming text-sm">
+            <div className="bg-violet-primary/10 border border-violet-primary/30 rounded-full px-6 py-2 text-violet-primary font-gaming text-sm">
               100% FREE
             </div>
           </motion.div>
 
           {/* Main title */}
           <motion.h1
-            className="font-gothic text-6xl md:text-8xl lg:text-9xl font-black mb-6 bg-gradient-to-r from-red-500 via-red-300 to-red-500 bg-clip-text text-transparent"
+            className="font-gothic text-6xl md:text-8xl lg:text-9xl font-black mb-6 bg-gradient-to-r from-violet-primary via-violet-secondary to-violet-primary bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -141,8 +158,8 @@ export default function GamingHero() {
                 onClick={() => scrollTo(`#${item.id}`, { duration: 1.5, offset: -100 })}
                 className={`px-6 py-3 text-sm font-bold font-gaming transition-all duration-300 border ${
                   item.active
-                    ? 'bg-red-600 text-white border-red-600'
-                    : 'bg-transparent text-red-400 border-red-600/50 hover:bg-red-600/20 hover:text-white'
+                    ? 'bg-violet-primary text-white border-violet-primary'
+                    : 'bg-transparent text-violet-primary border-violet-primary/50 hover:bg-violet-primary/20 hover:text-white'
                 }`}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -160,13 +177,13 @@ export default function GamingHero() {
           >
             <motion.button
               onClick={handleScrollToNext}
-              className="group relative px-8 py-4 bg-red-600 text-white font-gaming font-bold text-lg overflow-hidden"
+              className="group relative px-8 py-4 bg-violet-primary text-white font-gaming font-bold text-lg overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10">START EXPERIENCE</span>
               <motion.div
-                className="absolute inset-0 bg-red-700"
+                className="absolute inset-0 bg-violet-secondary"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: 0 }}
                 transition={{ type: "tween", duration: 0.3 }}
@@ -182,12 +199,12 @@ export default function GamingHero() {
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             <motion.div
-              className="w-6 h-10 border-2 border-red-400 rounded-full flex justify-center"
+              className="w-6 h-10 border-2 border-violet-primary rounded-full flex justify-center"
               animate={{ y: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
               <motion.div
-                className="w-1 h-3 bg-red-400 rounded-full mt-2"
+                className="w-1 h-3 bg-violet-primary rounded-full mt-2"
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               />
