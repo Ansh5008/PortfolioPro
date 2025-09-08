@@ -61,11 +61,14 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
-        // Gothic theme colors
+        // Gaming theme colors
         'gothic-black': 'var(--gothic-black)',
         'gothic-dark': 'var(--gothic-dark)',
         'blood-red': 'var(--blood-red)',
         'deep-red': 'var(--deep-red)',
+        'neon-red': 'var(--neon-red)',
+        'dark-red': 'var(--dark-red)',
+        'cyber-blue': 'var(--cyber-blue)',
         'gothic-gray': 'var(--gothic-gray)',
         'gothic-text': 'var(--gothic-text)',
         'gothic-muted': 'var(--gothic-muted)',
@@ -75,6 +78,7 @@ export default {
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
         gothic: ["var(--font-gothic)"],
+        gaming: ["var(--font-gaming)"],
       },
       keyframes: {
         "accordion-down": {
