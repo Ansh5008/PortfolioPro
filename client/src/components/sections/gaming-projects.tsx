@@ -77,8 +77,8 @@ export default function GamingProjects() {
                 onClick={() => setViewMode(mode as "grid" | "expanded")}
                 className={`px-6 py-2 text-sm font-gaming font-bold transition-all ${
                   viewMode === mode
-                    ? "bg-red-600 text-white"
-                    : "text-red-400 hover:text-white"
+                    ? "bg-violet-primary text-white"
+                    : "text-violet-primary hover:text-white"
                 }`}
               >
                 {mode.toUpperCase()}
@@ -94,7 +94,7 @@ export default function GamingProjects() {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  className="group relative bg-red-900/10 border border-red-600/30 rounded-lg overflow-hidden hover:bg-red-900/20 transition-all duration-500"
+                  className="group relative bg-violet-dark/10 border border-violet-primary/30 rounded-lg overflow-hidden hover:bg-violet-dark/20 transition-all duration-500"
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -106,16 +106,16 @@ export default function GamingProjects() {
                 >
                   {/* Status Badge */}
                   <div className="absolute top-4 left-4 z-10">
-                    <div className="bg-red-600/20 border border-red-600/50 px-3 py-1 rounded">
-                      <span className="text-red-400 text-xs font-gaming font-bold">
+                    <div className="bg-violet-primary/20 border border-violet-primary/50 px-3 py-1 rounded">
+                      <span className="text-violet-primary text-xs font-gaming font-bold">
                         {project.timeAgo}
                       </span>
                     </div>
                   </div>
 
                   {/* Project Image Placeholder */}
-                  <div className="aspect-video bg-gradient-to-br from-red-900/20 to-black border-b border-red-600/20 flex items-center justify-center">
-                    <div className="text-red-400/50 text-6xl">
+                  <div className="aspect-video bg-gradient-to-br from-violet-dark/20 to-black border-b border-violet-primary/20 flex items-center justify-center">
+                    <div className="text-violet-primary/50 text-6xl">
                       {project.category === "dashboard" && "📊"}
                       {project.category === "website" && "💻"}
                       {project.category === "marketplace" && "🛒"}

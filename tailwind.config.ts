@@ -77,11 +77,11 @@ export default {
         'gothic-muted': 'var(--gothic-muted)',
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        sans: ["Inter", "var(--font-sans)"],
         serif: ["var(--font-serif)"],
-        mono: ["var(--font-mono)"],
-        gothic: ["var(--font-gothic)"],
-        gaming: ["var(--font-gaming)"],
+        mono: ["JetBrains Mono", "var(--font-mono)"],
+        gothic: ["Orbitron", "Space Grotesk", "var(--font-gothic)"],
+        gaming: ["Rajdhani", "Inter", "var(--font-gaming)"],
       },
       keyframes: {
         "accordion-down": {
