@@ -61,7 +61,7 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
-        // Gaming theme colors
+        // Gaming theme colors - Blackish Violet
         'gothic-black': 'var(--gothic-black)',
         'gothic-dark': 'var(--gothic-dark)',
         'blood-red': 'var(--blood-red)',
@@ -69,6 +69,9 @@ export default {
         'neon-red': 'var(--neon-red)',
         'dark-red': 'var(--dark-red)',
         'cyber-blue': 'var(--cyber-blue)',
+        'violet-primary': 'var(--violet-primary)',
+        'violet-secondary': 'var(--violet-secondary)',
+        'violet-dark': 'var(--violet-dark)',
         'gothic-gray': 'var(--gothic-gray)',
         'gothic-text': 'var(--gothic-text)',
         'gothic-muted': 'var(--gothic-muted)',
